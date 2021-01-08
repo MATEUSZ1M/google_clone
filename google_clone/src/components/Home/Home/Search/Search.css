@@ -1,0 +1,24 @@
+.search {
+  width: 400px;
+  margin: 50px auto;
+}
+
+.search__input{
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+  height: 35px;
+  padding: 5px;
+  border-radius: 30px;
+}
+
+.search__input > input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 18px;
+}
+
+.search__inputIcon {
+  margin: 5px;
+}
