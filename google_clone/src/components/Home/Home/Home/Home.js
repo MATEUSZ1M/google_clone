@@ -32,7 +32,7 @@ function Home() {
       </div>
       <div className="home__body">
         <img
-          src="https://png2.cleanpng.com/sh/f0d23ad96818f7af24b6f70060724cea/L0KzQYm3V8A0N5J9j5H0aYP2gLBuTfdwd5hxfZ91b3fyPbj2jBdtbV5uhdNwZYOwd7F2hBxmNZoyh592b4TrdcO0lPVzbaRmRadrM3HpRoTtgcQ2amI8RqM9OEKzR4m7UcU0OGYASKkDM0a6Q4O1kP5o/kisspng-google-logo-google-images-google-i-o-mother-teresa-5b3af63fa45b17.1482078415305907836732.png"
+          src="https://i.postimg.cc/BvYGsZH2/640px-Google-2015-logo-svg.png"
           alt="google logo"
         />
         {/* Search */}
