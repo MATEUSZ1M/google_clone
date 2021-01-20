@@ -14,6 +14,8 @@ import MovieIcon from '@material-ui/icons/Movie';
 import ShopIcon from '@material-ui/icons/Shop';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+import Footer from "../Footer/Footer";
+
 
 function SearchPage() {
   const[{term}, dispatch] = useStateValue();
@@ -98,7 +100,9 @@ function SearchPage() {
         ))}
       </div>
       )}
+      <Footer/>
     </div>
+
   )
 }
 

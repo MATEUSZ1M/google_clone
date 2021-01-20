@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AppsIcon from "@material-ui/icons/Apps";
 import "./Home.css";
 import Avatar from "@material-ui/core/Avatar";
-import Search from "../Search/Search"
+import Search from "../Search/Search";
 
 function Home() {
   return (
@@ -31,12 +31,19 @@ function Home() {
         </div>
       </div>
       <div className="home__body">
-        <img
-          src="https://i.postimg.cc/BvYGsZH2/640px-Google-2015-logo-svg.png"
-          alt="google logo"
-        />
+        <div className="home__logo">
+          <img
+            src="https://i.postimg.cc/BvYGsZH2/640px-Google-2015-logo-svg.png"
+            alt="google logo"
+          />
+          <img
+            className="home__reactLogo"
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+            alt="react logo"
+          />
+        </div>
         {/* Search */}
-        <Search/>
+        <Search />
       </div>
     </div>
   );

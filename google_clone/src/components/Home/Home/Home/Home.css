@@ -1,10 +1,10 @@
-.home{
+.home {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.home__header{
+.home__header {
   display: flex;
   justify-content: space-between;
   padding: 20px 30px;
@@ -30,19 +30,52 @@
   justify-content: space-between;
 }
 
-.home__headerRight > .MuiSvgIcon-root {
+.home__headerRight>.MuiSvgIcon-root {
   margin-right: 20px;
 }
 
-.home__body{
+.home__body {
   display: flex;
   flex-direction: column;
   flex: 1;
   margin-top: 10%;
+  height: 100vh;
 }
 
-.home__body > img {
+.home__logo{
+  display: flex;
+  margin: 0 auto;
+}
+
+.home__logo>img:first-of-type {
   object-fit: contain;
   height: 100px;
   align-items: center;
+}
+
+.home__reactLogo {
+  animation: rotate-center 3s linear infinite forwards;
+  height: 100px;
+  width: 100px;
+
+}
+
+@-webkit-keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
