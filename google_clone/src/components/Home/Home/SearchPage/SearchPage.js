@@ -1,17 +1,17 @@
-import React from "react";
-import "./SearchPage.css";
+import React from 'react';
+import './SearchPage.css';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useStateValue } from "../../../../StateProvider";
+import { useStateValue } from '../../../../StateProvider'
 // import useGoogleSearch from '../../../../useGoogleSearch';
-import Response from "../../../../response";
-import { Link } from "react-router-dom";
-import Search from "../Search/Search";
-import Options from "../Options/Options";
+import Response from "../../../../response"
+import { Link } from 'react-router-dom';
+import  Search  from '../Search/Search'
+import Options from '../Options/Options'
 
 import Footer from "../Footer/Footer";
 
-const { useEffect } = React;
+const {  useEffect } = React;
 
 function SearchPage() {
   //animations
@@ -19,7 +19,7 @@ function SearchPage() {
 
   useEffect(() => {
     gsap.to(".searchPage__options", {
-      y: -60,
+      y: -20,
       opacity: 0,
       duration: 5,
       scrollTrigger: {
@@ -27,55 +27,91 @@ function SearchPage() {
         markers: true,
         start: "top 200",
         end: "top 100px",
-        scrub: true,
+        scrub: true
       },
     });
   }, []);
 
-  const [{ term }, dispatch] = useStateValue();
+  useEffect(() => {
+    gsap.to(".search__buttons", {
+      duration: 5,
+      scrollTrigger: {
+        trigger: ".searchPage__result:nth-of-type(2)",
+        markers: true,
+        start: "top 200",
+        end: "top 100px",
+        scrub: true
+      },
+
+      css: {
+        marginTop: 0,
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    gsap.to(".searchPage__header", {
+      duration: 5,
+      scrollTrigger: {
+        trigger: ".searchPage__result:nth-of-type(2)",
+        markers: true,
+        start: "top 200",
+        end: "top 100px",
+        scrub: true
+      },
+
+      css: {
+        paddingBottom: 0 ,
+      }
+    });
+  }, []);
+
+
+  const[{term}, dispatch] = useStateValue();
   //Live api call
   // const {data} = useGoogleSearch(term);
-  const data = Response;
+  const data = Response
 
-  console.log(data);
+  console.log(data)
   return (
-    <div className="searchPage">
-      <div className="searchPage__header">
+    <div className='searchPage'>
+      <div className='searchPage__header'>
         <Link to="/">
-          <img
+          <img 
             className="searchPage__logo"
             src="https://i.postimg.cc/BvYGsZH2/640px-Google-2015-logo-svg.png"
             alt="google logo"
           />
         </Link>
         <div className="searchPage__headerBody">
-          <Search hideButtons />
-          <Options />
+          <Search hideButtons/>
+        <Options/>
         </div>
       </div>
-     
       {true && (
-        <div className="searchPage__results">
-          <p className="searchPage__resultCount">
-            About {data?.searchInformation.formattedTotalResults} results ({" "}
-            {data?.searchInformation.formattedSearchTime}s ) for {term}
-          </p>
-          {data?.items.map((item) => (
-            <div className="searchPage__result">
-              <a className="searchPage__resultLink" href={item.link}>
-                {item.displayLink}
-              </a>
-              <a className="searchPage__resultTitle" href={item.link}>
-                {item.title}
-              </a>
-              <p className="searchPage__resultSnippet">{item.snippet}</p>
-            </div>
-          ))}
-        </div>
+      <div className='searchPage__results'>
+        <p className='searchPage__resultCount'>
+          About {data?.searchInformation.formattedTotalResults} results ( {data?.searchInformation.formattedSearchTime}s ) for {term} 
+        </p>
+        {data?.items.map(item => (
+          <div className="searchPage__result">
+            <a className="searchPage__resultLink" href={item.link}>
+              {item.displayLink}
+            </a>
+            <a className="searchPage__resultTitle" href={item.link}>
+              {item.title}
+            </a>
+            <p className="searchPage__resultSnippet">
+              {item.snippet}
+            </p>
+          </div>
+        ))}
+      </div>
       )}
-      <Footer />
+      <Footer/>
     </div>
-  );
+
+  )
 }
 
-export default SearchPage;
+export default SearchPage
