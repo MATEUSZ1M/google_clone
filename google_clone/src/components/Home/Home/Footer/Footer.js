@@ -11,7 +11,7 @@ class Footer extends React.Component {
         return !this.props.isGeolocationAvailable ? (
             <div className="footer">Your browser does not support Geolocation</div>
         ) : !this.props.isGeolocationEnabled ? (
-            <div>Geolocation is not enabled</div>
+            <div className="footer">Geolocation is not enabled</div>
         ) : this.props.coords ? (
            <div className="footer">
              <span> Location: ( latitude {this.props.coords.latitude.toFixed(3)}</span>

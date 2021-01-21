@@ -4,6 +4,7 @@ import AppsIcon from "@material-ui/icons/Apps";
 import "./Home.css";
 import Avatar from "@material-ui/core/Avatar";
 import Search from "../Search/Search";
+import Footer from "../Footer/Footer"
 
 function Home() {
   return (
@@ -44,6 +45,7 @@ function Home() {
         </div>
         {/* Search */}
         <Search />
+        <Footer/>
       </div>
     </div>
   );

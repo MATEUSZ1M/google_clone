@@ -13,36 +13,30 @@ import Footer from "../Footer/Footer";
 
 const {  useEffect } = React;
 
+const trigger = {
+  trigger: ".searchPage__result:nth-of-type(2)",
+  start: "top 200",
+  end: "top 100px",
+  scrub: true
+}
+
+
 function SearchPage() {
   //animations
   gsap.registerPlugin(ScrollTrigger);
+
 
   useEffect(() => {
     gsap.to(".searchPage__options", {
       y: -20,
       opacity: 0,
-      duration: 5,
-      scrollTrigger: {
-        trigger: ".searchPage__result:nth-of-type(2)",
-        markers: true,
-        start: "top 200",
-        end: "top 100px",
-        scrub: true
-      },
+      scrollTrigger: trigger,
     });
   }, []);
 
   useEffect(() => {
     gsap.to(".search__buttons", {
-      duration: 5,
-      scrollTrigger: {
-        trigger: ".searchPage__result:nth-of-type(2)",
-        markers: true,
-        start: "top 200",
-        end: "top 100px",
-        scrub: true
-      },
-
+      scrollTrigger: trigger,
       css: {
         marginTop: 0,
       }
@@ -51,15 +45,8 @@ function SearchPage() {
 
   useEffect(() => {
     gsap.to(".searchPage__header", {
-      duration: 5,
-      scrollTrigger: {
-        trigger: ".searchPage__result:nth-of-type(2)",
-        markers: true,
-        start: "top 200",
-        end: "top 100px",
-        scrub: true
-      },
-
+      // duration: duration,
+      scrollTrigger: trigger,
       css: {
         paddingBottom: 0 ,
       }
