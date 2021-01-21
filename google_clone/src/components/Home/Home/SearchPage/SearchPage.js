@@ -8,18 +8,15 @@ import Response from "../../../../response"
 import { Link } from 'react-router-dom';
 import  Search  from '../Search/Search'
 import Options from '../Options/Options'
-
 import Footer from "../Footer/Footer";
 
 const {  useEffect } = React;
-
 const trigger = {
   trigger: ".searchPage__result:nth-of-type(2)",
   start: "top 200",
   end: "top 100px",
   scrub: true
 }
-
 
 function SearchPage() {
   //animations
