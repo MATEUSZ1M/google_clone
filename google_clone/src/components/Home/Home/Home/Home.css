@@ -79,3 +79,27 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 480px) {
+
+  .home > *{
+    font-size: 12px !important;
+  }
+
+  .home__logo{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .home__logo > img:first-of-type{
+    height: 60px;
+  }
+
+  .home__logo > img:last-of-type{
+    height: 30px;
+  }
+
+  .home__header a {
+    font-size: unset !important;
+  }
+}

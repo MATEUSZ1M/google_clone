@@ -23,9 +23,10 @@ const useStyles = makeStyles({
 
 function Search({ hideButtons = false }) {
   const classes = useStyles();
+
   const [{}, dispath] = useStateValue();
   const history = useHistory();
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   const search = (e) => {
     e.preventDefault();

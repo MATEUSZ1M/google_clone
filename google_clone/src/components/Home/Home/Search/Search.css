@@ -39,3 +39,12 @@
 .search__buttonsHidden {
   display: none !important;
 }
+
+@media (max-width: 480px) {
+ .search__input{
+   width: 90vw;
+ }
+.makeStyles-root-1{
+  padding: 0 15px !important;
+ }
+}

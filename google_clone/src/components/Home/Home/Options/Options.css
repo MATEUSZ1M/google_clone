@@ -24,3 +24,10 @@
 .searchPage__optionsRight{
   margin-left: 80px;
 }
+
+@media (max-width: 480px) {
+  
+  .searchPage__options {
+    display: none;
+  }
+}
