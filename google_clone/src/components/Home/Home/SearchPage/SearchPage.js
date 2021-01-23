@@ -3,11 +3,13 @@ import "./SearchPage.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useStateValue } from "../../../../StateProvider";
-import useGoogleSearch from '../../../../useGoogleSearch';
+// import useGoogleSearch from '../../../../useGoogleSearch';
+import Response from '../../../../response';
 import { Link } from "react-router-dom";
 import Search from "../Search/Search";
 import Options from "../Options/Options";
 import Footer from "../Footer/Footer";
+import ErrorMessage from "../404/ErrorMessage";
 
 const { useEffect } = React;
 const trigger = {
@@ -40,7 +42,6 @@ function SearchPage() {
 
   useEffect(() => {
     gsap.to(".searchPage__header", {
-      // duration: duration,
       scrollTrigger: trigger,
       css: {
         paddingBottom: 0,
@@ -50,9 +51,9 @@ function SearchPage() {
 
   const [{ term }] = useStateValue();
   //Live api call
-  const {data} = useGoogleSearch(term);
+  // const {data} = useGoogleSearch(term);
+  const data = Response
 
-  console.log(data);
   return (
     <div className="searchPage">
       <div className="searchPage__header">
@@ -68,10 +69,10 @@ function SearchPage() {
           <Options />
         </div>
       </div>
-      {true && (
+      {data?.items !== undefined ? (
         <div className="searchPage__results">
           <p className="searchPage__resultCount">
-            About {data?.searchInformation.formattedTotalResults} results ({''}
+            About {data?.searchInformation.formattedTotalResults} results ({""}
             {data?.searchInformation.formattedSearchTime}s ) for {term}
           </p>
           {data?.items.map((item) => (
@@ -94,7 +95,7 @@ function SearchPage() {
             </div>
           ))}
         </div>
-      )}
+      ): <ErrorMessage/>}
       <Footer />
     </div>
   );

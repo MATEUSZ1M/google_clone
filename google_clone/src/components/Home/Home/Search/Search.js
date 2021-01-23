@@ -5,7 +5,7 @@ import MicIcon from "@material-ui/icons/Mic";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
-import {useStateValue} from '../../../../StateProvider';
+import { useStateValue } from "../../../../StateProvider";
 import { actionTypes } from "../../../../reducer";
 
 const useStyles = makeStyles({
@@ -26,24 +26,29 @@ function Search({ hideButtons = false }) {
 
   const [{}, dispath] = useStateValue();
   const history = useHistory();
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   const search = (e) => {
     e.preventDefault();
 
-    console.log("you hit search", input);
-    history.push("/search");
-    dispath({
-      type: actionTypes.SET_SEARCH_TERM,
-      term: input
-    })
+    if (input !== "") {
+      history.push("/search");
+      dispath({
+        type: actionTypes.SET_SEARCH_TERM,
+        term: input,
+      });
+    } else return;
   };
 
   return (
     <form className="search">
       <div className="search__input">
         <SearchIcon className="search__inputIcon" />
-        <input placeholder="Type me!" value={input} onChange={(e) => setInput(e.target.value)} />
+        <input
+          placeholder="Type me!"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
         <MicIcon />
       </div>
 
