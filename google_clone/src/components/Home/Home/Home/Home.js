@@ -9,7 +9,7 @@ import Login from "../Login/Login";
 
 class Home extends Component {
 
-  state = { visibl: false };
+  state = { visible: false };
 
   render() {
     return (
@@ -25,7 +25,8 @@ class Home extends Component {
             <Link to="apps">
               <AppsIcon />
             </Link>
-            <Avatar 
+            <Avatar
+              className="home__headerAvatar"
               onClick={() => {
                 this.setState({ visible: !this.state.visible });
               }}

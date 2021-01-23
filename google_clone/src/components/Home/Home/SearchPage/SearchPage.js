@@ -3,8 +3,8 @@ import "./SearchPage.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useStateValue } from "../../../../StateProvider";
-// import useGoogleSearch from '../../../../useGoogleSearch';
-import Response from '../../../../response';
+import useGoogleSearch from '../../../../useGoogleSearch';
+// import Response from '../../../../response';
 import { Link } from "react-router-dom";
 import Search from "../Search/Search";
 import Options from "../Options/Options";
@@ -15,7 +15,7 @@ const { useEffect } = React;
 const trigger = {
   trigger: ".searchPage__result:nth-of-type(2)",
   start: "top 200",
-  end: "top 100px",
+  end: "top 100",
   scrub: true,
 };
 
@@ -51,8 +51,9 @@ function SearchPage() {
 
   const [{ term }] = useStateValue();
   //Live api call
-  // const {data} = useGoogleSearch(term);
-  const data = Response
+  const {data} = useGoogleSearch(term);
+  //mock data response
+  // const data = Response
 
   return (
     <div className="searchPage">

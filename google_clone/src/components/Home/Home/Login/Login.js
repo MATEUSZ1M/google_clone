@@ -14,7 +14,6 @@ const useStyles = makeStyles({
     position: 'absolute',
     top: 70,
     right: 20,
-    minWidth: 350,
     zIndex: 100,
   },
   avatar: {

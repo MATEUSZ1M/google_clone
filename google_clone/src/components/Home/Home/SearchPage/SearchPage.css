@@ -101,7 +101,8 @@
 
 @media (max-width: 480px) {
   .searchPage__header {
-    flex-direction: column;
+    display: block;
+    position: relative;
   }
 
   .searchPage__results {
@@ -117,12 +118,15 @@
   }
 
   .searchPage__header{
-    padding: 15px !important;
+    padding: 5px 5px 10px 05px!important;
     align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .searchPage__logo{
-    height: 50px;
+    height: 30px;
+    margin-top: 5px;
     margin-right: unset;
   }
 }

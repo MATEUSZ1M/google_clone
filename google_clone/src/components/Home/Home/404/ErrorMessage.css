@@ -1,11 +1,18 @@
 .errorMessage {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
   margin: auto;
+  width: 80vw;
+  height: 100vh;
+  max-width: 340px;
+  text-align: center;
+
 }
 
 .errorMessage__header{
+  padding-top: 2em;
+}
+
+.errorMessage__info{
   padding: 2em 0;
-  text-align: center;
 }
